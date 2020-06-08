@@ -24,15 +24,9 @@ public class Evento implements Serializable {
     private String local;
     private String data;
     private String horario;
-    private double precoIngresso;
-
-    public double getPrecoIngresso() {
-        return precoIngresso;
-    }
-
-    public void setPrecoIngresso(double precoIngresso) {
-        this.precoIngresso = precoIngresso;
-    }
+    private int qtdPessoas;
+    private String diaDaSemana;
+    // private double custoDoEvento;
 
     public long getCodigo() {
         return codigo;
@@ -73,5 +67,45 @@ public class Evento implements Serializable {
     public void setHorario(String horario) {
         this.horario = horario;
     }
+
+    public int getQtdPessoas() {
+        return qtdPessoas;
+    }
+
+    public void setQtdPessoas(int qtdPessoas) {
+        this.qtdPessoas = qtdPessoas;
+    }
+
+    public String getDiaDaSemana() {
+        return diaDaSemana;
+    }
+
+    public void setDiaDaSemana(String diaDaSemana) {
+        this.diaDaSemana = diaDaSemana;
+    }
+
+    /*public double getCustoDoEvento() {
+        return custoDoEvento;
+    }
+
+    public void setCustoDoEvento() {
+        if (this.qtdPessoas < 50) {
+            this.custoDoEvento += 250;
+        }
+        if (this.qtdPessoas >= 50 && this.qtdPessoas < 150) {
+            this.custoDoEvento += 450;
+        }
+        if (this.qtdPessoas >= 150 && this.qtdPessoas <= 300) {
+            this.custoDoEvento += 750;
+        }
+        if (this.diaDaSemana.equalsIgnoreCase("Segunda") || this.diaDaSemana.equalsIgnoreCase("Quarta")
+                || this.diaDaSemana.equalsIgnoreCase("Terça") || this.diaDaSemana.equalsIgnoreCase("Quinta")) {
+            this.custoDoEvento += 250;
+        }
+        if (this.diaDaSemana.equalsIgnoreCase("Sexta") || this.diaDaSemana.equalsIgnoreCase("Sabado")
+                || this.diaDaSemana.equalsIgnoreCase("Domingo")) {
+            this.custoDoEvento += 600;
+        }
+    }*/
 
 }
