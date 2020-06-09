@@ -2,9 +2,11 @@ package com.eventoapp.controllers;
 
 import com.eventoapp.models.Evento;
 import com.eventoapp.repository.EventoRepository;
+import com.fasterxml.jackson.annotation.JsonCreator.Mode;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -37,10 +39,22 @@ public class EventoController {
     public ModelAndView listaEventos() {
         // Criando a view para a lista de eventos:
         ModelAndView mv = new ModelAndView("index");
-        // Buscando a lista de eventos:
+        // Buscando a toda lista de eventos com findAll():
         Iterable<Evento> eventos = er.findAll();
         // O mesmo nome que colocamos na view, no index.html, deveremos colocar aqui:
         mv.addObject("eventos", eventos);
+        return mv;
+    }
+
+    // Este método servirá para receber o código do evento e buscar no banco de
+    // dados.
+    @RequestMapping("/{codigo}")
+    public ModelAndView detalhesEvento(@PathVariable("codigo") long codigo) {
+        // Aqui estamos buscando o evento que corresponde ao código e guarda na variável
+        // evento.
+        Evento evento = er.findByCodigo(codigo);
+        ModelAndView mv = new ModelAndView("evento/detalhesEvento");
+        mv.addObject("evento", evento);
         return mv;
     }
 }
