@@ -3,21 +3,47 @@
 
 <head>
     <title>Galaxy Eventos</title>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css" media="screen,projection" />
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </head>
 
 <body>
     <h1>Cadastro de Eventos</h1>
-    <form method="POST">
+    <h3>
+        <a href="/eventos" class="waves-effect waves-light btn"><i
+                class="material-icons left">format_list_bulleted</i>Lista de Eventos</a>
+    </h3>
+    <form class="container" method="POST">
 
         Nome: <input type="text" value="" name="nome"></input>
-        Local: <input type="text" value="" name="local"></input>
-        Data: <input type="date" value="" name="data"></input>
-        Horario: <input type="time" value="" name="horario"></input>
-        Quantidade de pessoas: <input type="number" value="" name="qtdPessoas"></input>
-        Dia da semana: <input type="text" value="" name="diaDaSemana"></input>
-        <button type="submit">Salvar</button>
+        <div class="row">
+            <div class="input-field col s4">
+                Local: <input type="text" value="" name="local"></input>
+            </div>
+            <div class="input-field col s2">
+                Data: <input type="date" value="" name="data"></input>
+            </div>
+            <div class="input-field col s2">
+                Horario: <input type="time" value="" name="horario"></input>
+            </div>
+            <div class="input-field col s2">
+                Quantidade de pessoas: <input type="number" value="" name="qtdPessoas"></input>
+            </div>
+            <div class="input-field col s2">
+                Dia da semana: <input type="text" value="" name="diaDaSemana"></input>
+            </div>
+        </div>
+
+        <button type="submit" class="waves-effect waves-light btn">Salvar</button>
 
     </form>
+    <!--JavaScript at end of body for optimized loading-->
+    <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
 </body>
 
 </html>
