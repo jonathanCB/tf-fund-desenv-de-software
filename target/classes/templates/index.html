@@ -23,11 +23,9 @@
             <tr>
                 <!-- <th> define uma célula cabeçalho do grupo de células de sua tabela -->
                 <th>Nome</th>
-                <th>Local</th>
-                <th>Data</th>
-                <th>Horario</th>
                 <th>Quantidade de pessoas</th>
                 <th>Dia da semana</th>
+                <th>Desconto promocional</th>
             </tr>
         </thead>
         <tbody>
@@ -35,13 +33,11 @@
             <tr th:each="evento : ${eventos}">
 
                 <!-- A tag <td> define uma célula de dados padrão em uma tabela HTML.-->
-                <td><a th:href="${(#mvc.url('EC#detalhesEvento').arg(0, evento.codigo)).build()}"><span
-                            th:text="${evento.nome}"></span></a></td>
-                <td><span th:text="${evento.local}"></span></td>
-                <td><span th:text="${evento.data}"></span></td>
-                <td><span th:text="${evento.horario}"></span></td>
+                <td><a th:href="${(#mvc.url('EC#detalhesEvento').arg(0, evento.codigo)).build()}">
+                        <span th:text="${evento.nomeEvento}"></span></a></td>
                 <td><span th:text="${evento.qtdPessoas}"></span></td>
                 <td><span th:text="${evento.diaDaSemana}"></span></td>
+                <td><span th:text="${evento.descontoPromocional}"></span></td>
             </tr>
         </tbody>
     </table>
