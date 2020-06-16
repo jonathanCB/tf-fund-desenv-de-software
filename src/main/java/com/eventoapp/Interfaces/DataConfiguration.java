@@ -1,4 +1,4 @@
-package com.eventoapp;
+package com.eventoapp.Interfaces;
 
 import javax.sql.DataSource;
 

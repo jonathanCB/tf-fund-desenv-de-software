@@ -1,7 +1,6 @@
-package com.eventoapp.Controllers;
+package com.eventoapp.Interfaces;
 
-import com.eventoapp.Entidade.Evento;
-import com.eventoapp.Repositorios.EventoRepository;
+import com.eventoapp.Entity.Evento;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
