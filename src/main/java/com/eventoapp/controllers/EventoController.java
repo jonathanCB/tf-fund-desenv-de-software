@@ -1,8 +1,7 @@
-package com.eventoapp.controllers;
+package com.eventoapp.Controllers;
 
-import com.eventoapp.models.Evento;
-import com.eventoapp.repository.EventoRepository;
-import com.fasterxml.jackson.annotation.JsonCreator.Mode;
+import com.eventoapp.Entidade.Evento;
+import com.eventoapp.Repositorios.EventoRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

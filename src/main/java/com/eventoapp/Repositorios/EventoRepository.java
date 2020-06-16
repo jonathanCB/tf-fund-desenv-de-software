@@ -1,6 +1,6 @@
-package com.eventoapp.repository;
+package com.eventoapp.Repositorios;
 
-import com.eventoapp.models.Evento;
+import com.eventoapp.Entidade.Evento;
 
 import org.springframework.data.repository.CrudRepository;
 
