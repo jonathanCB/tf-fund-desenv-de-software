@@ -1,6 +1,6 @@
-package com.eventoapp.CasosDeUso;
+package com.eventoapp.UseCases;
 
-import com.eventoapp.Entidade.Evento;
+import com.eventoapp.Entity.Evento;
 
 import org.springframework.stereotype.Component;
 

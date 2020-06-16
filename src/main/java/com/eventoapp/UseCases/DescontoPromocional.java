@@ -1,6 +1,6 @@
-package com.eventoapp.CasosDeUso;
+package com.eventoapp.UseCases;
 
-import com.eventoapp.Entidade.Evento;
+import com.eventoapp.Entity.Evento;
 
 import org.springframework.stereotype.Component;
 
@@ -11,7 +11,7 @@ public class DescontoPromocional implements Desconto {
 
     @Override
     public double desconto(Evento evento) {
-        if (evento.getDescontoPromocional().equalsIgnoreCase("s")) {
+        if (evento.getDescontoPromocional().equalsIgnoreCase("sim")) {
             return evento.getCustoDoEvento() * TX_DESCONTO;
         } else {
             return 0;

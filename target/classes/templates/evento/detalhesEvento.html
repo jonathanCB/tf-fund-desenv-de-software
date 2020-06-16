@@ -18,10 +18,14 @@
 
     <div th:each="evento : ${evento}" class="container">
         <div class="row">
-            <p>Nome: <span th:text="${evento.nomeEvento}"></span></p>
-            <p>Quantidade de pessoas: <span th:text="${evento.qtdPessoas}"></span></p>
-            <p>Dia da semana: <span th:text="${evento.diaDaSemana}"></span></p>
-            <p>Desconto promocional: <span th:text="${evento.descontoPromocional}"></span></p>
+            <p><b>Nome: </b><span th:text="${evento.nomeEvento}"></span></p>
+            <p><b>Quantidade de pessoas: </b><span th:text="${evento.qtdPessoas}"></span></p>
+            <p><b>Dia da semana: </b><span th:text="${evento.diaDaSemana}"></span></p>
+            <p><b>Desconto promocional: </b><span th:text="${evento.descontoPromocional}"></span></p>
+            <p><b>Desconto: </b></p>
+            <p><b>Valor pelo dia da semana escolhido: </b></p>
+            <p><b>Valor por quantidadede pessoas: </b></p>
+            <p><b>Custo total do evento: </b></p>
         </div>
     </div>
 

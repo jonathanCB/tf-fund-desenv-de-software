@@ -1,4 +1,4 @@
-package com.eventoapp.Entidade;
+package com.eventoapp.Entity;
 
 import java.io.Serializable;
 
