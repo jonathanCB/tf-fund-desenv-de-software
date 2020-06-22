@@ -10,11 +10,8 @@ import org.springframework.stereotype.Service;
 public class ServicoDeCalculoDosValores {
     private EventoRepository listaEventos;
     private Desconto desconto;
-    private double valorDesconto;
     private ValoresPorDiasDaSemana valoresDiaSemana;
     private ValoresPorQtdPessoas valoresQtdPessoas;
-    private double valorPorDiasDaSemana;
-    private double valorPorQtdDePessoas;
     private Evento evento;
 
     @Autowired
@@ -25,9 +22,6 @@ public class ServicoDeCalculoDosValores {
         this.valoresDiaSemana = valoresDiaSemana;
         this.valoresQtdPessoas = valoresQtdPessoas;
         this.evento = null;
-        this.valorPorDiasDaSemana = 0;
-        this.valorPorQtdDePessoas = 0;
-        this.valorDesconto = 0;
     }
 
     public Evento getEvento(long codigo) {
@@ -40,34 +34,32 @@ public class ServicoDeCalculoDosValores {
         }
     }
 
-    public double desconto(long codigo) {
+    public double getDesconto(long codigo) {
         if (this.evento == null || this.evento.getCodigo() != codigo) {
             this.evento = getEvento(codigo);
-            this.valorDesconto = desconto.desconto(this.evento);
         }
-        return this.valorDesconto;
+        return this.desconto.desconto(this.evento);
     }
 
-    public double valoresPorDiasDaSemana(long codigo) {
+    public double getValoresPorDiasDaSemana(long codigo) {
         if (this.evento == null || this.evento.getCodigo() != codigo) {
             this.evento = getEvento(codigo);
-            this.valorPorQtdDePessoas = this.valoresDiaSemana.valor(evento);
         }
-        return this.valorPorQtdDePessoas;
+        return this.valoresDiaSemana.valor(evento);
     }
 
-    public double valorPorQtdDePessoas(long codigo) {
+    public double getValorPorQtdDePessoas(long codigo) {
         if (this.evento == null || this.evento.getCodigo() != codigo) {
             this.evento = getEvento(codigo);
-            this.valorPorQtdDePessoas = this.valoresQtdPessoas.valor(evento);
         }
-        return this.valorPorQtdDePessoas;
+        return this.valoresQtdPessoas.valor(evento);
     }
 
     public double getValorTotalEvento() {
         double valorTotalDoEvento = 0;
-        if (this.valorPorDiasDaSemana > 0 && this.valorPorQtdDePessoas > 0) {
-            valorTotalDoEvento = (this.valorPorDiasDaSemana + this.valorPorQtdDePessoas - this.valorDesconto);
+        if (this.valoresDiaSemana.valor(evento) > 0 && this.valoresQtdPessoas.valor(evento) > 0) {
+            valorTotalDoEvento = (this.valoresDiaSemana.valor(this.evento) + this.valoresQtdPessoas.valor(this.evento)
+                    - this.desconto.desconto(evento));
         } else {
             return 0;
         }
