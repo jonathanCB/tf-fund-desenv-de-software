@@ -1,5 +1,5 @@
 C:\Users\jonas\OneDrive\Área de Trabalho\Faculdade\Programação\3º Semestre - Fundamentos do Desenvolvimento de Software\Trabalho_Final\eventosapp\src\main\java\com\eventoapp\Interfaces\DataConfiguration.java
-C:\Users\jonas\OneDrive\Área de Trabalho\Faculdade\Programação\3º Semestre - Fundamentos do Desenvolvimento de Software\Trabalho_Final\eventosapp\src\main\java\com\eventoapp\Interfaces\EventoappApplication.java
+C:\Users\jonas\OneDrive\Área de Trabalho\Faculdade\Programação\3º Semestre - Fundamentos do Desenvolvimento de Software\Trabalho_Final\eventosapp\src\main\java\com\eventoapp\EventoappApplication.java
 C:\Users\jonas\OneDrive\Área de Trabalho\Faculdade\Programação\3º Semestre - Fundamentos do Desenvolvimento de Software\Trabalho_Final\eventosapp\src\main\java\com\eventoapp\Interfaces\EventoController.java
 C:\Users\jonas\OneDrive\Área de Trabalho\Faculdade\Programação\3º Semestre - Fundamentos do Desenvolvimento de Software\Trabalho_Final\eventosapp\src\main\java\com\eventoapp\Interfaces\IndexController.java
 C:\Users\jonas\OneDrive\Área de Trabalho\Faculdade\Programação\3º Semestre - Fundamentos do Desenvolvimento de Software\Trabalho_Final\eventosapp\src\main\java\com\eventoapp\UseCases\Desconto.java
@@ -7,5 +7,6 @@ C:\Users\jonas\OneDrive\Área de Trabalho\Faculdade\Programação\3º Semestre - Fun
 C:\Users\jonas\OneDrive\Área de Trabalho\Faculdade\Programação\3º Semestre - Fundamentos do Desenvolvimento de Software\Trabalho_Final\eventosapp\src\main\java\com\eventoapp\UseCases\DescontoPromocional.java
 C:\Users\jonas\OneDrive\Área de Trabalho\Faculdade\Programação\3º Semestre - Fundamentos do Desenvolvimento de Software\Trabalho_Final\eventosapp\src\main\java\com\eventoapp\Entity\Evento.java
 C:\Users\jonas\OneDrive\Área de Trabalho\Faculdade\Programação\3º Semestre - Fundamentos do Desenvolvimento de Software\Trabalho_Final\eventosapp\src\main\java\com\eventoapp\Interfaces\EventoRepository.java
+C:\Users\jonas\OneDrive\Área de Trabalho\Faculdade\Programação\3º Semestre - Fundamentos do Desenvolvimento de Software\Trabalho_Final\eventosapp\src\main\java\com\eventoapp\UseCases\ServicoDeCalculoDosValores.java
 C:\Users\jonas\OneDrive\Área de Trabalho\Faculdade\Programação\3º Semestre - Fundamentos do Desenvolvimento de Software\Trabalho_Final\eventosapp\src\main\java\com\eventoapp\UseCases\Valores.java
 C:\Users\jonas\OneDrive\Área de Trabalho\Faculdade\Programação\3º Semestre - Fundamentos do Desenvolvimento de Software\Trabalho_Final\eventosapp\src\main\java\com\eventoapp\UseCases\ValoresPorQtdPessoas.java
