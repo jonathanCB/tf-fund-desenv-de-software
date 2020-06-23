@@ -13,13 +13,13 @@ public class ValoresPorQtdPessoas implements Valores {
 
     @Override
     public double valor(Evento evento) {
-        if (evento.getQtdPessoas() < 50) {
+        if (evento.getQtdPessoas() < 100) {
             return POUCAS_PESSOAS;
         }
-        if (evento.getQtdPessoas() >= 50 && evento.getQtdPessoas() < 300) {
+        if (evento.getQtdPessoas() >= 100 && evento.getQtdPessoas() < 350) {
             return MEDIO_NPESSOAS;
         }
-        if (evento.getQtdPessoas() >= 150 && evento.getQtdPessoas() <= 600) {
+        if (evento.getQtdPessoas() >= 350) {
             return MUITAS_PESSOAS;
         } else {
             return 0;
