@@ -22,7 +22,7 @@ public class FachadaRemota {
 
     @CrossOrigin(origins = "*") // "http://localhost")
     @GetMapping("/dadosevento")
-    public Evento getDadosEvento(@RequestParam long codigo) {
+    public Evento getDadosEvento(@RequestParam int codigo) {
         Evento evento = sCalculaValores.getEvento(codigo);
         return evento;
     }

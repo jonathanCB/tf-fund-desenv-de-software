@@ -13,11 +13,11 @@ public class ValoresPorDiasDaSemana implements Valores {
 
     @Override
     public double valor(Evento evento) {
-        if (evento.getDiaDaSemana().equalsIgnoreCase("Segunda") || evento.getDiaDaSemana().equalsIgnoreCase("Terça")
-                || evento.getDiaDaSemana().equalsIgnoreCase("Quarta")) {
+        if (evento.getDiaDaSemana().equalsIgnoreCase("Segunda") || evento.getDiaDaSemana().equalsIgnoreCase("Terça")) {
             return VALOR_INICIO_SEMANA;
         }
-        if (evento.getDiaDaSemana().equalsIgnoreCase("Quinta") || evento.getDiaDaSemana().equalsIgnoreCase("Sexta")) {
+        if (evento.getDiaDaSemana().equalsIgnoreCase("Quarta") || evento.getDiaDaSemana().equalsIgnoreCase("Quinta")
+                || evento.getDiaDaSemana().equalsIgnoreCase("Sexta")) {
             return VALOR_MEIO_SEMANA;
         }
         if (evento.getDiaDaSemana().equalsIgnoreCase("Sabado") || evento.getDiaDaSemana().equalsIgnoreCase("Domingo")) {

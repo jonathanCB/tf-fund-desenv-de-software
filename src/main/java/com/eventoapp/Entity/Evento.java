@@ -25,9 +25,17 @@ public class Evento implements Serializable {
     private String diaDaSemana;
     private String descontoPromocional;
     private double desconto;
-    private String valoresPorDiaDaSemana;
-    private int valoresPorQtdDePessoas;
+    private double valoresPorDiaDaSemana;
+    private double valoresPorQtdDePessoas;
     private double custoDoEvento;
+
+    public Evento(long codigo, String nomeEvento, int qtdPessoas, String diaDaSemana, String descontoPromocional) {
+        this.codigo = codigo;
+        this.nomeEvento = nomeEvento;
+        this.qtdPessoas = qtdPessoas;
+        this.diaDaSemana = diaDaSemana;
+        this.descontoPromocional = descontoPromocional;
+    }
 
     public long getCodigo() {
         return codigo;
@@ -77,19 +85,19 @@ public class Evento implements Serializable {
         this.desconto = desconto;
     }
 
-    public String getValoresPorDiaDaSemana() {
+    public double getValoresPorDiaDaSemana() {
         return valoresPorDiaDaSemana;
     }
 
-    public void setValoresPorDiaDaSemana(String valoresPorDiaDaSemana) {
+    public void setValoresPorDiaDaSemana(double valoresPorDiaDaSemana) {
         this.valoresPorDiaDaSemana = valoresPorDiaDaSemana;
     }
 
-    public int getValoresPorQtdDePessoas() {
+    public double getValoresPorQtdDePessoas() {
         return valoresPorQtdDePessoas;
     }
 
-    public void setValoresPorQtdDePessoas(int valoresPorQtdDePessoas) {
+    public void setValoresPorQtdDePessoas(double valoresPorQtdDePessoas) {
         this.valoresPorQtdDePessoas = valoresPorQtdDePessoas;
     }
 
