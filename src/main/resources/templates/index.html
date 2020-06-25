@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html xmlns:th="http://thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 
 <head>
@@ -12,39 +13,31 @@
 </head>
 
 <body>
-    <h1>Minha lista de eventos</h1>
-    <h3><a href="/cadastrarEvento" class="waves-effect waves-light btn"><i
-                class="material-icons left">add_circle_outline</i>Cadastrar Evento</a></h3>
+    <h1>Cadastro de Eventos</h1>
+    <h3>
+        <a href="/eventos" class="waves-effect waves-light btn"><i
+                class="material-icons left">format_list_bulleted</i>Lista de Eventos</a>
+    </h3>
+    <form class="container" method="POST">
 
-    <!-- Estilizando a tabela para receber nossos dados do banco. -->
-    <table class="container">
-        <thead>
-            <!-- A tag <tr> define uma linha em uma tabela HTML. -->
-            <tr>
-                <!-- <th> define uma célula cabeçalho do grupo de células de sua tabela -->
-                <th>Nome</th>
-                <th>Quantidade de pessoas</th>
-                <th>Dia da semana</th>
-                <th>Desconto promocional</th>
-            </tr>
-        </thead>
-        <tbody>
-            <!-- "Para cada evento". -->
-            <tr th:each="evento : ${eventos}">
+        Nome: <input type="text" value="" name="nomeEvento"></input>
+        <div class="row">
+            <div class="input-field col s3">
+                Quantidade de pessoas: <input type="number" value="" name="qtdPessoas"></input>
+            </div>
+            <div class="input-field col s2">
+                Dia da semana: <input type="text" value="" name="diaDaSemana"></input>
+            </div>
+            <div class="input-field col s2">
+                Desconto promocional: <input type="text" value="" name="descontoPromocional"></input>
+            </div>
+        </div>
 
-                <!-- A tag <td> define uma célula de dados padrão em uma tabela HTML.-->
-                <td><a th:href="${(#mvc.url('EC#detalhesEvento').arg(0, evento.codigo)).build()}">
-                        <span th:text="${evento.nomeEvento}"></span></a></td>
-                <td><span th:text="${evento.qtdPessoas}"></span></td>
-                <td><span th:text="${evento.diaDaSemana}"></span></td>
-                <td><span th:text="${evento.descontoPromocional}"></span></td>
-            </tr>
-        </tbody>
-    </table>
+        <button type="submit" class="waves-effect waves-light btn">Salvar</button>
 
+    </form>
     <!--JavaScript at end of body for optimized loading-->
     <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
-
 </body>
 
 </html>

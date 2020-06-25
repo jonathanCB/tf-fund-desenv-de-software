@@ -10,18 +10,22 @@ import org.springframework.stereotype.Service;
 public class ServicoDeCalculoDosValores {
     private EventoRepository listaEventos;
     private Desconto desconto;
-    private ValoresPorDiasDaSemana valoresDiaSemana;
-    private ValoresPorQtdPessoas valoresQtdPessoas;
+    private ValoresPorDiasDaSemanaImplements valoresDiaSemana;
+    private ValoresPorQtdPessoasImplements valoresQtdPessoas;
     private Evento evento;
 
     @Autowired
     public ServicoDeCalculoDosValores(EventoRepository listaEventos, Desconto desconto,
-            ValoresPorDiasDaSemana valoresDiaSemana, ValoresPorQtdPessoas valoresQtdPessoas) {
+            ValoresPorDiasDaSemanaImplements valoresDiaSemana, ValoresPorQtdPessoasImplements valoresQtdPessoas) {
         this.listaEventos = listaEventos;
         this.desconto = desconto;
         this.valoresDiaSemana = valoresDiaSemana;
         this.valoresQtdPessoas = valoresQtdPessoas;
         this.evento = null;
+    }
+
+    public void saveEvento(Evento evento) {
+        listaEventos.save(evento);
     }
 
     public Evento getEvento(long codigo) {
@@ -65,4 +69,5 @@ public class ServicoDeCalculoDosValores {
         }
         return valorTotalDoEvento;
     }
+
 }

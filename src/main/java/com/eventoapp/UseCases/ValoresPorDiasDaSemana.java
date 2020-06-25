@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 // Implementando a classe de ValoresDiasDaSemana usando Strategy
-public class ValoresPorDiasDaSemana implements Valores {
+public class ValoresPorDiasDaSemana implements ValoresPorDiasDaSemanaImplements {
     private final double VALOR_INICIO_SEMANA = 400.00;
     private final double VALOR_MEIO_SEMANA = 550.00;
     private final double VALOR_FIM_SEMANA = 900.00;

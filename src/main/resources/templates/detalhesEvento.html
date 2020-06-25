@@ -16,16 +16,16 @@
     <h3><a href="/eventos" class="waves-effect waves-light btn"><i
                 class="material-icons left">format_list_bulleted</i>Lista de Eventos</a></h3>
 
-    <div th:each="evento : ${evento}" class="container">
+    <div class="container">
         <div class="row">
-            <p><b>Nome: </b><span th:text="${evento.nomeEvento}"></span></p>
-            <p><b>Quantidade de pessoas: </b><span th:text="${evento.qtdPessoas}"></span></p>
-            <p><b>Dia da semana: </b><span th:text="${evento.diaDaSemana}"></span></p>
-            <p><b>Desconto promocional: </b><span th:text="${evento.descontoPromocional}"></span></p>
-            <p><b>Desconto: </b></p>
-            <p><b>Valor pelo dia da semana escolhido: </b></p>
-            <p><b>Valor por quantidadede pessoas: </b></p>
-            <p><b>Custo total do evento: </b></p>
+            <p><b>Nome: </b><span id="nome"></span></p>
+            <p><b>Quantidade de pessoas: </b><span id="qtdpessoas"></span></p>
+            <p><b>Dia da semana: </b><span id="diasemana"></span></p>
+            <p><b>Desconto promocional: </b><span id="descontopromocional"></span></p>
+            <p><b>Desconto: </b><span id="desconto"></span></p>
+            <p><b>Valor pelo dia da semana escolhido: </b><span id="valorpelodiasemana"></span></p>
+            <p><b>Valor por quantidadede pessoas: </b><span id="valorporqtdpessoas"></span></p>
+            <p><b>Custo total do evento: </b><span id="custototalevento"></span></p>
         </div>
     </div>
 
