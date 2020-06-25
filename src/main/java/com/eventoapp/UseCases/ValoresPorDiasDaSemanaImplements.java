@@ -2,6 +2,6 @@ package com.eventoapp.UseCases;
 
 import com.eventoapp.Entity.Evento;
 
-public interface Valores {
+public interface ValoresPorDiasDaSemanaImplements {
     double valor(Evento evento);
 }
