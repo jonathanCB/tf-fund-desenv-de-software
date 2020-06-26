@@ -29,8 +29,7 @@ public class Evento implements Serializable {
     private double valoresPorQtdDePessoas;
     private double custoDoEvento;
 
-    public Evento(long codigo, String nomeEvento, int qtdPessoas, String diaDaSemana, String descontoPromocional) {
-        this.codigo = codigo;
+    public Evento(String nomeEvento, int qtdPessoas, String diaDaSemana, String descontoPromocional) {
         this.nomeEvento = nomeEvento;
         this.qtdPessoas = qtdPessoas;
         this.diaDaSemana = diaDaSemana;

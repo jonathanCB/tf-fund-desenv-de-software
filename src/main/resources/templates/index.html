@@ -15,29 +15,36 @@
 <body>
     <h1>Cadastro de Eventos</h1>
     <h3>
-        <a href="/eventos" class="waves-effect waves-light btn"><i
+        <a href="detalhesEvento.html" class="waves-effect waves-light btn"><i
                 class="material-icons left">format_list_bulleted</i>Lista de Eventos</a>
     </h3>
-    <form class="container" method="POST">
+    <form class="container">
 
-        Nome: <input type="text" value="" name="nomeEvento"></input>
+        Nome: <input type="text" value="" name="Nome do Evento" id="nomeEvento"></input>
         <div class="row">
+            <div class="input-field col s2">
+                Dia da semana: <input type="text" value="" name="Dia da semana" id="diaDaSemana"></input>
+            </div>
             <div class="input-field col s3">
-                Quantidade de pessoas: <input type="number" value="" name="qtdPessoas"></input>
+                Quantidade de pessoas: <input type="number" value="" name="Quantidade de pessoas"
+                    id="qtdPessoas"></input>
             </div>
             <div class="input-field col s2">
-                Dia da semana: <input type="text" value="" name="diaDaSemana"></input>
-            </div>
-            <div class="input-field col s2">
-                Desconto promocional: <input type="text" value="" name="descontoPromocional"></input>
+                Desconto promocional: <input type="text" value="" name="Desconto promocional"
+                    id="descontoPromocional"></input>
             </div>
         </div>
+        <li>
+            <label id="g1">Código do evento:</label>
+            <span id="codEvento"> - </span>
+        </li>
 
         <button type="submit" class="waves-effect waves-light btn">Salvar</button>
 
     </form>
     <!--JavaScript at end of body for optimized loading-->
     <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+    <script type="text/javascript" src="../static/js/script.js"></script>
 </body>
 
 </html>
