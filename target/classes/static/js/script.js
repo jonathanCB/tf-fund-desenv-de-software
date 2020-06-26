@@ -5,9 +5,9 @@ async function salvarevento(nomeEvento, diaSemana,
 
     let url = "http://localhost:8080/detalhesevento/persiste";
     url = url + "?nomeEvento=" + nomeEvento;
-    url = url + "?diaSemana=" + diaSemana;
-    url = url + "?qtdPessoas=" + qtdPessoas;
-    url = url + "?descontoPromo=" + descontoPromo;
+    url = url + "&diaSemana=" + diaSemana;
+    url = url + "&qtdPessoas=" + qtdPessoas;
+    url = url + "&descontoPromo=" + descontoPromo;
 
     try {
         let resposta = await fetch(url);
@@ -48,13 +48,13 @@ async function consultaAprovacao(matricula) {
 
 // --- início do programa
 document.getElementById("submit").onclick = async function () {
-    nomeEvento = document.getElementById("nomeEvento").value;
-    diaSemana = document.getElementById("diaDaSemana").value;
-    qtdPessoas = document.getElementById("qtdPessoas").value;
-    descontoPromo = document.getElementById("descontoPromocional").value;
+    nomeEvento = document.getElementById("nomeEventoValor").value;
+    diaSemana = document.getElementById("diaDaSemanaValor").value;
+    qtdPessoas = document.getElementById("qtdPessoasValor").value;
+    descontoPromo = document.getElementById("descontoPromocionalValor").value;
     let resposta = await salvarevento(nomeEvento, diaSemana, qtdPessoas, descontoPromo);
     if (resposta != null) {
-        let nome = document.getElementById("nomeValor");
+        let nome = document.getElementById("codEventoValor");
         nome.innerHTML = resposta.nome;
         let g1 = document.getElementById("g1Valor");
         g1.innerHTML = resposta.grauG1;
