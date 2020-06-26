@@ -10,18 +10,64 @@ import org.springframework.stereotype.Service;
 public class ServicoDeCalculoDosValores {
     private EventoRepository listaEventos;
     private Desconto desconto;
-    private ValoresPorDiasDaSemana valoresDiaSemana;
-    private ValoresPorQtdPessoas valoresQtdPessoas;
+    private ValoresPorDiasDaSemanaImplements valoresDiaSemana;
+    private ValoresPorQtdPessoasImplements valoresQtdPessoas;
     private Evento evento;
 
     @Autowired
     public ServicoDeCalculoDosValores(EventoRepository listaEventos, Desconto desconto,
-            ValoresPorDiasDaSemana valoresDiaSemana, ValoresPorQtdPessoas valoresQtdPessoas) {
+            ValoresPorDiasDaSemanaImplements valoresDiaSemana, ValoresPorQtdPessoasImplements valoresQtdPessoas) {
         this.listaEventos = listaEventos;
         this.desconto = desconto;
         this.valoresDiaSemana = valoresDiaSemana;
         this.valoresQtdPessoas = valoresQtdPessoas;
         this.evento = null;
+    }
+
+    public void saveEvento(Evento evento) {
+        // Salvando o evento no banco de dados:
+        listaEventos.save(evento);
+
+        /*
+         * Setando o valor do evento de acordo com o dia da semana escolhido: OBS: para
+         * fazermos isso, estamos chamando o método setValoresPorDiasDaSemana() passando
+         * outro método, o getValoresPorDiasDaSemana() passando o código do evento para
+         * chamar OUTRO método, o método valor(), agora da classe
+         * ValoresPorDiasDaSemana.
+         */
+        evento.setValoresPorDiaDaSemana(getValoresPorDiasDaSemana(evento.getCodigo()));
+
+        /*
+         * Setando o valor do evento de acordo com a quantidade de pessoas: OBS: para
+         * fazermos isso, estamos chamando o método setValoresPorQtdDePessoas() passando
+         * outro método, o getValorPorQtdDePessoas() passando o código do evento para
+         * chamar OUTRO método, o método valor(), agora da classe ValoresPorQtdPessoas.
+         */
+        evento.setValoresPorQtdDePessoas(getValorPorQtdDePessoas(evento.getCodigo()));
+
+        /*
+         * Setando o custo total do evento (sem aplicar o desconto): OBS: para fazermos
+         * isso, estamos chamando o método getValorTotalEvento().
+         */
+        evento.setCustoDoEvento(getValorTotalEvento());
+
+        /*
+         * Setando o valor do desconto (se houver). OBS: para fazermos isso, estamos
+         * chamando o método setDesconto() passando o método getDesconto() e passando o
+         * código do evento.
+         */
+        evento.setDesconto(getDesconto(evento.getCodigo()));
+
+        /*
+         * Aqui estamos atualizando o custo total do evento com o desconto já aplicado.
+         */
+        evento.setCustoDoEvento(getValorTotalEvento());
+
+        /*
+         * Por fim, estamos atualizando todos os custos do evento com os descontos já
+         * aplicados.
+         */
+        listaEventos.save(evento);
     }
 
     public Evento getEvento(long codigo) {
@@ -65,4 +111,5 @@ public class ServicoDeCalculoDosValores {
         }
         return valorTotalDoEvento;
     }
+
 }

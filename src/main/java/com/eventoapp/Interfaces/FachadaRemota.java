@@ -21,8 +21,16 @@ public class FachadaRemota {
     }
 
     @CrossOrigin(origins = "*") // "http://localhost")
+    @GetMapping("/persiste")
+    public void saveEvento(@RequestParam String nomeEvento, @RequestParam int qtdPessoas,
+            @RequestParam String diaSemana, @RequestParam String descPromocional) {
+        Evento evento = new Evento(nomeEvento, qtdPessoas, diaSemana, descPromocional);
+        sCalculaValores.saveEvento(evento);
+    }
+
+    @CrossOrigin(origins = "*")
     @GetMapping("/dadosevento")
-    public Evento getDadosEvento(@RequestParam long codigo) {
+    public Evento getDadosEvento(@RequestParam int codigo) {
         Evento evento = sCalculaValores.getEvento(codigo);
         return evento;
     }
