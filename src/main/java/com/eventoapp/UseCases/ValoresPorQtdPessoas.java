@@ -13,7 +13,7 @@ public class ValoresPorQtdPessoas implements ValoresPorQtdPessoasImplements {
 
     @Override
     public double valor(Evento evento) {
-        if (evento.getQtdPessoas() < 100) {
+        if (evento.getQtdPessoas() > 0 && evento.getQtdPessoas() < 100) {
             return POUCAS_PESSOAS;
         }
         if (evento.getQtdPessoas() >= 100 && evento.getQtdPessoas() < 350) {
