@@ -20,46 +20,40 @@ public class FachadaRemota {
         this.sCalculaValores = sCalculaValores;
     }
 
-    @CrossOrigin(origins = "*") // "http://localhost")
+    @CrossOrigin(origins = "*")
     @GetMapping("/persiste")
     public void saveEvento(@RequestParam String nomeEvento, @RequestParam int qtdPessoas,
             @RequestParam String diaSemana, @RequestParam String descPromocional) {
-        Evento evento = new Evento(nomeEvento, qtdPessoas, diaSemana, descPromocional);
-        sCalculaValores.saveEvento(evento);
+        sCalculaValores.saveEvento(new Evento(nomeEvento, qtdPessoas, diaSemana, descPromocional));
     }
 
     @CrossOrigin(origins = "*")
     @GetMapping("/dadosevento")
     public Evento getDadosEvento(@RequestParam int codigo) {
-        Evento evento = sCalculaValores.getEvento(codigo);
-        return evento;
+        return sCalculaValores.getEvento(codigo);
     }
 
     @CrossOrigin(origins = "*")
     @GetMapping("/desconto")
     public double getValorDesconto(@RequestParam long codigo) {
-        double desconto = sCalculaValores.getDesconto(codigo);
-        return desconto;
+        return sCalculaValores.getDesconto(codigo);
     }
 
     @CrossOrigin(origins = "*")
     @GetMapping("/valorpordiadasemana")
     public double getValorPorDiaDaSemana(@RequestParam long codigo) {
-        double valorPorDiaDaSemana = sCalculaValores.getValoresPorDiasDaSemana(codigo);
-        return valorPorDiaDaSemana;
+        return sCalculaValores.getValoresPorDiasDaSemana(codigo);
     }
 
     @CrossOrigin(origins = "*")
     @GetMapping("/valorporqtddepessoas")
     public double getValorPorQtdDePessoas(@RequestParam long codigo) {
-        double valorPorQtdDePessoas = sCalculaValores.getValorPorQtdDePessoas(codigo);
-        return valorPorQtdDePessoas;
+        return sCalculaValores.getValorPorQtdDePessoas(codigo);
     }
 
     @CrossOrigin(origins = "*")
     @GetMapping("/valortotaldoevento")
     public double getValorTotalDoEvento(@RequestParam long codigo) {
-        double valorTotalDoEvento = sCalculaValores.getValorTotalEvento();
-        return valorTotalDoEvento;
+        return sCalculaValores.getValorTotalEvento();
     }
 }
