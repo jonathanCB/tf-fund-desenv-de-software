@@ -1,8 +1,11 @@
 <!DOCTYPE html>
-<html xmlns:th="http://thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 
 <head>
+    <!-- <html lang="pt-br">
+
+    </html> -->
     <title>Galaxy Eventos</title>
+
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
     <!--Import materialize.css-->
@@ -20,35 +23,37 @@
     <h1>
         Cadastro de Eventos
     </h1>
-    <h3>
+    <!-- <h3>
         <a href="detalhesEvento.html" class="waves-effect waves-light btn"><i
                 class="material-icons left">format_list_bulleted</i>Lista de eventos</a>
-    </h3>
+    </h3> -->
     <form class="container">
 
-        Nome: <input type="text" value="" name="nomeEvento" id="nomeEventoValor"></input>
+        Nome: <input type="text" name="nomeEvento" id="nomeEvento"></input>
         <div class="row">
             <div class="input-field col s2">
-                Dia da semana: <input type="text" value="" name="diaDaSemana" id="diaDaSemanaValor"></input>
+                Dia da semana: <input type="text" name="diaSemana" id="diaSemana"></input>
             </div>
             <div class="input-field col s3">
-                Quantidade de pessoas: <input type="number" value="" name="qtdPessoas" id="qtdPessoasValor"></input>
+                Quantidade de pessoas: <input type="number" name="qtdPessoas" id="qtdPessoas"></input>
             </div>
             <div class="input-field col s3">
-                Desconto promocional: <input type="text" value="" name="descontoPromocional"
-                    id="descontoPromocionalValor"></input>
+                Desconto promocional: <input type="text" name="descPromocional" id="descPromocional"></input>
             </div>
             <div class="input-field col s2">
                 Código do evento: <span id="codEventoValor"> - </span>
             </div>
         </div>
 
-        <button type="submit" class="waves-effect waves-light btn">Salvar</button>
+        <!-- <button id="btnSalvar" class="waves-effect waves-light btn btnSalvar">Salvar</button> -->
+
+        <button id="btnSalvar">Salvar</button>
 
     </form>
     <!--JavaScript at end of body for optimized loading-->
-    <script type="text/javascript" src="../static/materialize/js/materialize.min.js"></script>
     <script type="text/javascript" src="../static/js/script.js"></script>
+    <script type="text/javascript" src="../static/materialize/js/materialize.min.js"></script>
+
 </body>
 
 </html>

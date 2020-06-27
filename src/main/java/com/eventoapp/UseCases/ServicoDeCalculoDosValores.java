@@ -111,5 +111,4 @@ public class ServicoDeCalculoDosValores {
         }
         return valorTotalDoEvento;
     }
-
 }
