@@ -64,7 +64,7 @@ public class EventoappApplicationTest {
     // Fazendo testes parametrizados para a classe ValoresPorDiaDeSemana:
     @ParameterizedTest
     @CsvSource({ "Segunda, 400.00", "Terça, 400.00", "Quarta, 550.00", "Quinta, 550.00", "Sexta, 550.00",
-            "Sabado, 900.00", "Domingo, 900.00" })
+            "Sabado, 900.00", "Domingo, 900.00", "QualquerCoisa, 0.00" })
     public void testePorDiaDaSemana(String diaSemana, double resp) {
         // Criando um evento:
         this.evento = new Evento(this.nomeEvento, this.qtdPessoas, diaSemana, this.descontoPromocional);
@@ -75,7 +75,7 @@ public class EventoappApplicationTest {
     // Fazendo testes parametrizados para a classe ValoresPorQtdDePessoas:
     @ParameterizedTest
     @CsvSource({ "1, 350.00", "50, 350.00", "99, 350.00", "100, 550.00", "200, 550.00", "349, 550.00", "350, 800.00",
-            "500, 800.00", "1000, 800.00", })
+            "500, 800.00", "1000, 800.00", "0, 0.00", "-1, 0.00" })
     public void testePorQtdPessoas(int qtdPessoas, double resp) {
         // Criando um evento:
         this.evento = new Evento(this.nomeEvento, qtdPessoas, this.diaDaSemana, this.descontoPromocional);
