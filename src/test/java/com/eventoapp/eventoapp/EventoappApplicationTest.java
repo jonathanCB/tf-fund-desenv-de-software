@@ -82,4 +82,5 @@ public class EventoappApplicationTest {
         double valorPorQtdDePessoas = this.valorPorQtdDePessoas.valor(this.evento);
         assertEquals(resp, valorPorQtdDePessoas);
     }
+
 }
