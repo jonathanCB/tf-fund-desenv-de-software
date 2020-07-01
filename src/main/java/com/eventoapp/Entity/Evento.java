@@ -18,7 +18,7 @@ public class Evento implements Serializable {
     // Gerando o id automaticamente com "@GeneratedValue":
     // OBS: Para funcionar tempos que implementar a classe "Serializable" ↑.
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long codigo;
+    private int codigo;
 
     private String nomeEvento;
     private int qtdPessoas;
@@ -29,6 +29,9 @@ public class Evento implements Serializable {
     private double valoresPorQtdDePessoas;
     private double custoDoEvento;
 
+    public Evento() {
+    }
+
     public Evento(String nomeEvento, int qtdPessoas, String diaDaSemana, String descontoPromocional) {
         this.nomeEvento = nomeEvento;
         this.qtdPessoas = qtdPessoas;
@@ -36,11 +39,11 @@ public class Evento implements Serializable {
         this.descontoPromocional = descontoPromocional;
     }
 
-    public long getCodigo() {
+    public int getCodigo() {
         return codigo;
     }
 
-    public void setCodigo(long codigo) {
+    public void setCodigo(int codigo) {
         this.codigo = codigo;
     }
 

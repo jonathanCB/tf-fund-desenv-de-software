@@ -18,8 +18,9 @@
     </h1>
 
     <h3>
-        <a href="detalhesEvento.html" class="waves-effect waves-light btn"><i
-                class="material-icons left">format_list_bulleted</i>Lista de eventos</a>
+        <a href="pesquisarEvento.html" class="waves-effect waves-light btn">
+            <i class="material-icons left" id="lnkPesquisarEvento">format_list_bulleted</i>Pesquisar Evento
+        </a>
     </h3>
 
     <form class="container">
@@ -36,17 +37,13 @@
             <div class="input-field col s3"> Desconto promocional: <input type="text" name="descPromocional"
                     id="descPromocional"></input>
             </div>
-
-            <div class="input-field col s2">Código do evento: <span id="codEventoValor"> - </span>
-            </div>
         </div>
 
-        <button id="btnSalvar" class="waves-effect waves-light btn btnSalvar">Salvar</button>
-
+        <button id="btnSalvar" onclick="salvarEvento()" class="waves-effect waves-light btn btnSalvar">Salvar</button>
 
     </form>
     <script type="text/javascript" src="../static/js/script.js"></script>
-    <!-- <script type="text/javascript" src="../static/materialize/js/materialize.min.js"></script> -->
+    <script type="text/javascript" src="../static/materialize/js/materialize.min.js"></script>
 
 </body>
 

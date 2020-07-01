@@ -1,114 +1,77 @@
-// Consulta os dados do aluno
-async function salvarEvento(nomeEvento, diaSemana,
-    qtdPessoas, descontoPromo) {
-    //console.log(matricula);
-
-    let url = "http://localhost:8080/detalhesevento/persiste";
-    url = url + "?nomeEvento=" + nomeEvento;
-    url = url + "&qtdPessoas=" + qtdPessoas;
-    url = url + "&diaSemana=" + diaSemana;
-    url = url + "&descPromocional=" + descPromocional;
-
-    //let url = "http://localhost:8080/detalhesevento/persiste?nomeEvento=Formatura&qtdPessoas=255&diaSemana=Quarta&descPromocional=sim";
-
-    console.log(url);
-
-    try {
-        let resposta = await fetch(url);
-        console.log(resposta);
-        // if (resposta.ok) {
-        //     let dados = await resposta.json();
-        //     console.log(dados);
-        //     return dados;
-        // } else {
-        //     console.log(resposta.status + ", text=" + resposta.statusText);
-        //     return null;
-        // }
-        return resposta;
-    } catch (erro) {
-        console.log(erro);
-    }
+function getURLPadrao() {
+    return "http://localhost:8080/detalhesevento";
 }
 
-// Consulta aprovação do aluno
-// async function consultaAprovacao(matricula) {
-//     let url = "http://localhost:8080/consulta_aluno/aprovacao";
-//     url = url + "?matricula=" + matricula;
-
-//     try {
-//         let resposta = await fetch(url);
-//         console.log(resposta);
-//         if (resposta.ok) {
-//             let dados = await resposta.json();
-//             console.log(dados);
-//             return dados;
-//         } else {
-//             console.log(resposta.status + ", text=" + resposta.statusText);
-//             return null;
-//         }
-//     } catch (erro) {
-//         console.log(erro);
-//     }
-// }
-
-// --- início do programa
-document.getElementById("btnSalvar").onclick = async function () {
+async function salvarEvento() {
     nomeEvento = document.getElementById("nomeEvento").value;
     diaSemana = document.getElementById("diaSemana").value;
     qtdPessoas = document.getElementById("qtdPessoas").value;
     descPromocional = document.getElementById("descPromocional").value;
 
-    console.log(nomeEvento);
-    console.log(diaSemana);
-    console.log(qtdPessoas);
-    console.log(descPromocional);
+    let url = getURLPadrao();
+    url += "/persiste";
+    url += "?nomeEvento=" + nomeEvento;
+    url += "&qtdPessoas=" + qtdPessoas;
+    url += "&diaSemana=" + diaSemana;
+    url += "&descPromocional=" + descPromocional;
 
-    let resposta = await salvarEvento(nomeEvento, diaSemana, qtdPessoas, descPromocional);
-    console.log(resposta);
+    console.log(url);
 
-    if (resposta.ok) {
-        return "Evento adicionado com sucesso";
+    try {
+        var xhttp = new XMLHttpRequest();
+        xhttp.open("GET", url, false);
+        xhttp.send();//A execução do script para aqui até a requisição retornar do servidor
+
+        const json = xhttp.responseText;
+        const obj = JSON.parse(json);
+
+        if (parseInt(obj.codigo) > 0) {
+            alert("Evento salvo com sucesso :D Codigo = " + obj.codigo);
+        }
+        else {
+            alert("Aconteceu algum erro ao salvar o Evento, por favor, tente novamente");
+        }
+    } catch (erro) {
+        console.log(erro);
+        alert("Aconteceu algum erro ao salvar o Evento, por favor, tente novamente");
     }
-    return "Aconteceu um erro ao adicionar o evento";
-
-    // if (resposta != null) {
-    //     let nome = document.getElementById("codEventoValor");
-    //     nome.innerHTML = resposta.nome;
-    //     let g1 = document.getElementById("g1Valor");
-    //     g1.innerHTML = resposta.grauG1;
-    //     let g2 = document.getElementById("g2Valor");
-    //     g2.innerHTML = resposta.grauG2;
-    //     erro = document.getElementById("erro");
-    //     erro.innerHTML = "";
-    //     //let json = document.getElementById("jsonValor");
-    //     //json.innerHTML = JSON.stringify(resposta);
-    // } else {
-    //     let nome = document.getElementById("nomeValor");
-    //     nome.innerHTML = " - ";
-    //     let g1 = document.getElementById("g1Valor");
-    //     g1.innerHTML = " - ";
-    //     let g2 = document.getElementById("g2Valor");
-    //     g2.innerHTML = " - ";
-    //     erro = document.getElementById("erro");
-    //     erro.innerHTML = "Erro na consulta dos dados";
-    // }
-
-    // document.getElementById("btAprovacao").onclick = async function () {
-    //     matricula = document.getElementById("matricula").value;
-    //     let resposta = await consultaAprovacao(matricula);
-    //     if (resposta != null) {
-    //         let aprovacao = document.getElementById("aprovacao");
-    //         if (resposta == true) {
-    //             aprovacao.innerHTML = "Aluno matricula: " + matricula + ", APROVADO";
-    //         } else {
-    //             aprovacao.innerHTML = "Aluno matricula: " + matricula + ", REPROVADO";
-    //         }
-    //         erro = document.getElementById("erro");
-    //         erro.innerHTML = " - ";
-    //     } else {
-    //         erro = document.getElementById("erro");
-    //         erro.innerHTML = "Erro na consulta da aprovacao";
-    //     }
-    // }
 }
 
+async function PesquisarEvento() {
+    idEvento = document.getElementById("idEvento").value;
+
+    console.log(idEvento);
+
+    let url = getURLPadrao();
+    url += "/dadosevento";
+    url += "?codigo=" + idEvento;
+
+    try {
+        var xhttp = new XMLHttpRequest();
+        xhttp.open("GET", url, false);
+        xhttp.send();
+
+        const json = xhttp.responseText;
+        const obj = JSON.parse(json);
+        console.log(obj.codigo);
+        console.log(parseInt(obj.codigo));
+
+        if (parseInt(obj.codigo) > 0) {
+            codigo.textContent = obj.codigo
+            nome.textContent = obj.nomeEvento
+            qtdpessoas.textContent = obj.qtdPessoas
+            diasemana.textContent = obj.diaDaSemana
+            descontopromocional.textContent = obj.descontoPromocional
+            desconto.textContent = obj.desconto
+            valorpelodiasemana.textContent = obj.valoresPorDiaDaSemana
+            valorporqtdpessoas.textContent = obj.valoresPorQtdDePessoas
+            custototalevento.textContent = obj.custoDoEvento
+        }
+        else {
+            alert("Código do evento inválido :C");
+        }
+    } catch (erro) {
+        console.log(erro);
+    }
+
+}

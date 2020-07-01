@@ -1,8 +1,9 @@
 package com.eventoapp.UseCases;
 
+import java.sql.DriverManager;
+import java.util.ArrayList;
 import com.eventoapp.Entity.Evento;
 import com.eventoapp.Interfaces.EventoRepository;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,7 +25,7 @@ public class ServicoDeCalculoDosValores {
         this.evento = null;
     }
 
-    public void saveEvento(Evento evento) {
+    public Evento saveEvento(Evento evento) {
         // Salvando o evento no banco de dados:
         listaEventos.save(evento);
 
@@ -68,37 +69,72 @@ public class ServicoDeCalculoDosValores {
          * aplicados.
          */
         listaEventos.save(evento);
+        return evento;
     }
 
-    public Evento getEvento(long codigo) {
-        Evento newEvento = listaEventos.findByCodigo(codigo);
-        if (newEvento == null) {
-            throw new IllegalArgumentException("Evento nao encontrado.");
-        } else {
-            this.evento = newEvento;
-            return evento;
+    private boolean validaAtributo(int codigo) {
+        if (codigo > 0) {
+            return true;
         }
+        return false;
     }
 
-    public double getDesconto(long codigo) {
-        if (this.evento == null || this.evento.getCodigo() != codigo) {
-            this.evento = getEvento(codigo);
+    public Evento getEvento(int codigo) {
+        if (validaAtributo(codigo)) {
+
+            Evento newEvento = listaEventos.findByCodigo(codigo);
+
+            if (newEvento != null) {
+                this.evento = newEvento;
+                return newEvento;
+            } else {
+                throw new IllegalArgumentException("Evento nao encontrado.");
+            }
         }
-        return this.desconto.desconto(this.evento);
+        throw new IllegalArgumentException("O codigo tem que ser maior que zero");
     }
 
-    public double getValoresPorDiasDaSemana(long codigo) {
-        if (this.evento == null || this.evento.getCodigo() != codigo) {
-            this.evento = getEvento(codigo);
+    // TO-DO versão 2.0
+    // public List<Evento> getEvento() {
+    // ArrayList<Evento> newEvento;
+    // newEvento.add(listaEventos.findAll());
+
+    // if (newEvento != null) {
+    // this.evento = newEvento;
+    // return newEvento;
+    // } else {
+    // throw new IllegalArgumentException("Evento nao encontrado.");
+    // }
+    // }
+
+    public double getDesconto(int codigo) {
+        if (validaAtributo(codigo)) {
+            if (this.evento == null || this.evento.getCodigo() != codigo) {
+                this.evento = getEvento(codigo);
+            }
+            return this.desconto.desconto(this.evento);
         }
-        return this.valoresDiaSemana.valor(evento);
+        throw new IllegalArgumentException("O codigo tem que ser maior que zero");
     }
 
-    public double getValorPorQtdDePessoas(long codigo) {
-        if (this.evento == null || this.evento.getCodigo() != codigo) {
-            this.evento = getEvento(codigo);
+    public double getValoresPorDiasDaSemana(int codigo) {
+        if (validaAtributo(codigo)) {
+            if (this.evento == null || this.evento.getCodigo() != codigo) {
+                this.evento = getEvento(codigo);
+            }
+            return this.valoresDiaSemana.valor(evento);
         }
-        return this.valoresQtdPessoas.valor(evento);
+        throw new IllegalArgumentException("O codigo tem que ser maior que zero");
+    }
+
+    public double getValorPorQtdDePessoas(int codigo) {
+        if (validaAtributo(codigo)) {
+            if (this.evento == null || this.evento.getCodigo() != codigo) {
+                this.evento = getEvento(codigo);
+            }
+            return this.valoresQtdPessoas.valor(evento);
+        }
+        throw new IllegalArgumentException("O codigo tem que ser maior que zero");
     }
 
     public double getValorTotalEvento() {

@@ -22,9 +22,9 @@ public class FachadaRemota {
 
     @CrossOrigin(origins = "*")
     @GetMapping("/persiste")
-    public void saveEvento(@RequestParam String nomeEvento, @RequestParam int qtdPessoas,
+    public Evento saveEvento(@RequestParam String nomeEvento, @RequestParam int qtdPessoas,
             @RequestParam String diaSemana, @RequestParam String descPromocional) {
-        sCalculaValores.saveEvento(new Evento(nomeEvento, qtdPessoas, diaSemana, descPromocional));
+        return sCalculaValores.saveEvento(new Evento(nomeEvento, qtdPessoas, diaSemana, descPromocional));
     }
 
     @CrossOrigin(origins = "*")
@@ -33,27 +33,34 @@ public class FachadaRemota {
         return sCalculaValores.getEvento(codigo);
     }
 
+    // TO-DO versão 2.0
+    // @CrossOrigin(origins = "*")
+    // @GetMapping("/dadoseventoall")
+    // public List<Evento> getDadosEvento() {
+    // return sCalculaValores.getEvento();
+    // }
+
     @CrossOrigin(origins = "*")
     @GetMapping("/desconto")
-    public double getValorDesconto(@RequestParam long codigo) {
+    public double getValorDesconto(@RequestParam int codigo) {
         return sCalculaValores.getDesconto(codigo);
     }
 
     @CrossOrigin(origins = "*")
     @GetMapping("/valorpordiadasemana")
-    public double getValorPorDiaDaSemana(@RequestParam long codigo) {
+    public double getValorPorDiaDaSemana(@RequestParam int codigo) {
         return sCalculaValores.getValoresPorDiasDaSemana(codigo);
     }
 
     @CrossOrigin(origins = "*")
     @GetMapping("/valorporqtddepessoas")
-    public double getValorPorQtdDePessoas(@RequestParam long codigo) {
+    public double getValorPorQtdDePessoas(@RequestParam int codigo) {
         return sCalculaValores.getValorPorQtdDePessoas(codigo);
     }
 
     @CrossOrigin(origins = "*")
     @GetMapping("/valortotaldoevento")
-    public double getValorTotalDoEvento(@RequestParam long codigo) {
+    public double getValorTotalDoEvento(@RequestParam int codigo) {
         return sCalculaValores.getValorTotalEvento();
     }
 }
