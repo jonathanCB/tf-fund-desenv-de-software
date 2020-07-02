@@ -20,46 +20,47 @@ public class FachadaRemota {
         this.sCalculaValores = sCalculaValores;
     }
 
-    @CrossOrigin(origins = "*") // "http://localhost")
+    @CrossOrigin(origins = "*")
     @GetMapping("/persiste")
-    public void saveEvento(@RequestParam String nomeEvento, @RequestParam int qtdPessoas,
+    public Evento saveEvento(@RequestParam String nomeEvento, @RequestParam int qtdPessoas,
             @RequestParam String diaSemana, @RequestParam String descPromocional) {
-        Evento evento = new Evento(nomeEvento, qtdPessoas, diaSemana, descPromocional);
-        sCalculaValores.saveEvento(evento);
+        return sCalculaValores.saveEvento(new Evento(nomeEvento, qtdPessoas, diaSemana, descPromocional));
     }
 
     @CrossOrigin(origins = "*")
     @GetMapping("/dadosevento")
     public Evento getDadosEvento(@RequestParam int codigo) {
-        Evento evento = sCalculaValores.getEvento(codigo);
-        return evento;
+        return sCalculaValores.getEvento(codigo);
     }
+
+    // TO-DO versão 2.0
+    // @CrossOrigin(origins = "*")
+    // @GetMapping("/dadoseventoall")
+    // public List<Evento> getDadosEvento() {
+    // return sCalculaValores.getEvento();
+    // }
 
     @CrossOrigin(origins = "*")
     @GetMapping("/desconto")
-    public double getValorDesconto(@RequestParam long codigo) {
-        double desconto = sCalculaValores.getDesconto(codigo);
-        return desconto;
+    public double getValorDesconto(@RequestParam int codigo) {
+        return sCalculaValores.getDesconto(codigo);
     }
 
     @CrossOrigin(origins = "*")
     @GetMapping("/valorpordiadasemana")
-    public double getValorPorDiaDaSemana(@RequestParam long codigo) {
-        double valorPorDiaDaSemana = sCalculaValores.getValoresPorDiasDaSemana(codigo);
-        return valorPorDiaDaSemana;
+    public double getValorPorDiaDaSemana(@RequestParam int codigo) {
+        return sCalculaValores.getValoresPorDiasDaSemana(codigo);
     }
 
     @CrossOrigin(origins = "*")
     @GetMapping("/valorporqtddepessoas")
-    public double getValorPorQtdDePessoas(@RequestParam long codigo) {
-        double valorPorQtdDePessoas = sCalculaValores.getValorPorQtdDePessoas(codigo);
-        return valorPorQtdDePessoas;
+    public double getValorPorQtdDePessoas(@RequestParam int codigo) {
+        return sCalculaValores.getValorPorQtdDePessoas(codigo);
     }
 
     @CrossOrigin(origins = "*")
     @GetMapping("/valortotaldoevento")
-    public double getValorTotalDoEvento(@RequestParam long codigo) {
-        double valorTotalDoEvento = sCalculaValores.getValorTotalEvento();
-        return valorTotalDoEvento;
+    public double getValorTotalDoEvento(@RequestParam int codigo) {
+        return sCalculaValores.getValorTotalEvento();
     }
 }
